@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Harry Potter - Bem-vindo</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('images/fundo.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .welcome-container {
+            background: rgba(20, 20, 20, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid gold;
+            box-shadow: 0 0 30px gold;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s;
+        }
+
+        .welcome-container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: gold;
+            text-shadow: 2px 2px 5px #000;
+            animation: flicker 3s infinite alternate;
+            position: relative;
+        }
+
+        h1::after {
+            content: "✨";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            opacity: 0.7;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .grifinoria {
+            color: #ae0001;
+            text-shadow: 0 0 5px #d3a625;
+        }
+
+        .sonserina {
+            color: #2a623d;
+            text-shadow: 0 0 5px #5d5d5d;
+        }
+
+        .corvinal {
+            color: #222f5b;
+            text-shadow: 0 0 5px #946b2d;
+        }
+
+        .lufa-lufa {
+            color: #ecb939;
+            text-shadow: 0 0 5px #372e29;
+        }
+
+        .wands-container {
+            position: relative;
+            height: 180px;
+            margin: 25px 0;
+        }
+
+        .wands-image {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            max-width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+
+        .start-button {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.1));
+            border: 1px solid gold;
+            color: white;
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .wands-container:hover .wands-image {
+            transform: translateX(-50%) rotate(165deg) translateY(-10px);
+            filter: drop-shadow(0 0 25px gold);
+        }
+
+        .start-button:hover {
+            background: linear-gradient(to right, rgba(255, 215, 0, 0.5), rgba(255, 215, 0, 0.3));
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 0 15px gold;
+        }
+
+        .start-button:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            transition: all 0.3s;
+        }
+
+        .start-button:hover:after {
+            left: 100%;
+        }
+
+        .sparks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .spark {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: gold;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        .fawkes {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            right: 20px;
+            bottom: 20px;
+            background: url('images/fawkes.png') no-repeat;
+            background-size: contain;
+            animation: float 6s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px gold, 0 0 20px darkorange, 0 0 30px rgba(255, 140, 0, 0.5);
+            }
+
+            50% {
+                text-shadow: 0 0 5px gold, 0 0 10px darkorange;
+            }
+        }
+
+        .magic-text {
+            display: block;
+            font-style: italic;
+            color: gold;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .warning-text {
+            font-size: 0.9em;
+            border-left: 3px solid #c62828;
+            padding-left: 15px;
+            margin-top: 20px;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .welcome-container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .wands-image {
+                max-width: 180px;
+                bottom: 30px;
+            }
+
+            .wands-container {
+                height: 150px;
+            }
+
+            .fawkes {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sparks" id="sparks-container"></div>
+    <div class="fawkes"></div>
+
+    <div class="welcome-container">
+        <h1>Torneio Tribruxo do Conhecimento</h1>
+
+        <p class="description">
+            <span class="magic-text">"O Cálice de Fogo está pronto para selecionar os campeões!"</span><br>
+            Este não é um torneio comum - aqui sua mente será testada em conhecimentos mágicos de
+            <strong class="grifinoria">Grifinória</strong>, <strong class="sonserina">Sonserina</strong>,
+            <strong class="corvinal">Corvinal</strong> e <strong class="lufa-lufa">Lufa-Lufa</strong>!
+        </p>
+
+        <div class="wands-container">
+            <img src="images/varinha.png" alt="Varinha Mágica" class="wands-image">
+            <button class="start-button" onclick="startQuiz()">Aceitar o Desafio</button>
+        </div>
+
+        <p class="description">
+            <em>"Os desafios incluirão..."</em><br>
+            Perguntas sobre <strong>Poções</strong>, <strong>Feitiços</strong>,
+            <strong>Criaturas Mágicas</strong> e os <strong>segredos de Hogwarts</strong>!
+        </p>
+
+        <p class="description warning-text">
+            ⚠️ <strong>Dragões à vista!</strong> Algumas perguntas são como os desafios do Torneio Tribruxo -
+            exigem coragem, inteligência e habilidade para superá-las!
+        </p>
+    </div>
+
+    <script>
+        function createSparks() {
+            const container = document.getElementById('sparks-container');
+            const colors = ['gold', '#ff5555', '#55aaff'];
+
+            for (let i = 0; i < 30; i++) {
+                const spark = document.createElement('div');
+                spark.className = 'spark';
+                spark.style.background = colors[Math.floor(Math.random() * colors.length)];
+                spark.style.left = Math.random() * 100 + 'vw';
+                spark.style.top = Math.random() * 100 + 'vh';
+                spark.style.width = (Math.random() * 5 + 2) + 'px';
+                spark.style.height = spark.style.width;
+
+                spark.style.animation = `sparkle ${Math.random() * 3 + 2}s infinite`;
+                container.appendChild(spark);
+
+                const keyframes = `
+                    @keyframes sparkle {
+                        0% { opacity: 0; transform: translate(0, 0); }
+                        50% { opacity: 1; transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px); }
+                        100% { opacity: 0; transform: translate(0, 0); }
+                    }
+                `;
+
+                const style = document.createElement('style');
+                style.innerHTML = keyframes;
+                document.head.appendChild(style);
+            }
+        }
+
+        function startQuiz() {
+            document.querySelector('.welcome-container').style.animation = 'fadeOut 0.5s forwards';
+
+            const portal = document.createElement('div');
+            portal.style.position = 'fixed';
+            portal.style.width = '10px';
+            portal.style.height = '10px';
+            portal.style.background = 'radial-gradient(circle, gold, transparent)';
+            portal.style.borderRadius = '50%';
+            portal.style.left = '50%';
+            portal.style.top = '50%';
+            portal.style.transform = 'translate(-50%, -50%)';
+            portal.style.zIndex = '999';
+            portal.style.boxShadow = '0 0 50px gold';
+            portal.style.animation = 'portalOpen 1s forwards';
+            document.body.appendChild(portal);
+
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes portalOpen {
+                    0% { width: 10px; height: 10px; opacity: 0; }
+                    50% { opacity: 1; }
+                    100% { width: 200vw; height: 200vh; opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+
+        window.onload = function () {
+            createSparks();
+
+            document.querySelector('.welcome-container').style.animation = 'fadeIn 1s forwards';
+
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(50px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes fadeOut {
+                    from { opacity: 1; transform: translateY(0); }
+                    to { opacity: 0; transform: translateY(-50px); }
+                }
+            `;
+            document.head.appendChild(style);
+        };
+    </script>
+</body>
+
+</html> 

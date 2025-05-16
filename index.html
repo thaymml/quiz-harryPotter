@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Interativo - Harry Potter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="quiz-container">
+        <h1>Quiz - Harry Potter</h1>
+
+        <div id="houses-selection">
+            <h2>Escolha sua casa antes de começar:</h2>
+            <div id="houses">
+                <img src="./images/grifinoria.jpg" alt="Grifinória" title="Grifinória" data-house="grifinoria">
+                <img src="./images/sonserina.jpg" alt="Sonserina" title="Sonserina" data-house="sonserina">
+                <img src="./images/corvinal.jpg" alt="Corvinal" title="Corvinal" data-house="corvinal">
+                <img src="./images/lufa-lufa.jpg" alt="Lufa-Lufa" title="Lufa-Lufa" data-house="lufalufa">
+            </div>
+            <p id="selected-house-text"></p>
+        </div>
+
+        <div id="difficulty-selection" style="display: none;">
+            <h2>Escolha o nível de dificuldade:</h2>
+            <div id="difficulty-buttons">
+                <button onclick="selectDifficulty('easy')">Trouxa (Fácil)</button>
+                <button onclick="selectDifficulty('medium')">Bruxo (Médio)</button>
+                <button onclick="selectDifficulty('hard')">Auror (Difícil)</button>
+            </div>
+        </div>
+
+        <div id="alert-container" class="alert-hidden">
+            <p id="alert-message"></p>
+        </div>
+
+        <div id="start-container">
+            <button id="start-btn">
+                Iniciar Quiz
+                <img id="wand" src="./images/varinha.png" alt="Varinha mágica" />
+            </button>
+        </div>
+
+        <div id="quiz" style="display:none;">
+            <p id="question">Pergunta aqui...</p>
+            <div id="answers"></div>
+            <p id="timer">Tempo restante: <span id="time">10</span>s</p>
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+            <p id="score">Pontuação: 0</p>
+        </div>
+
+        <div id="cheering-character" class="cheering-hidden"></div>
+        <div id="end-container" style="display:none;">
+            <h2>Fim do Quiz!</h2>
+            <p id="final-score">Pontuação final: 0</p>
+            <p id="final-message"></p>
+            <button onclick="restartQuiz()">Reiniciar</button>
+        </div>
+        <a href="welcome.html" style="color: gold; margin-top: 20px; display: inline-block;">Voltar à Tela Inicial</a>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
