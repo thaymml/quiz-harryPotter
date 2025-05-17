@@ -261,11 +261,6 @@ button:hover {
 }
 
 @media (max-width: 600px) {
-
-    /* body {
-        font-size: 14px;
-        background-size: contain;
-    } */
     body {
         background-size: cover;
         /* Em vez de 'contain' */
@@ -273,7 +268,6 @@ button:hover {
         background-position: center;
 
     }
-
 
     h1 {
         font-size: 22px;
@@ -391,53 +385,6 @@ button:hover {
     border-color: #2a623d;
 }
 
-/* .grifinoria-theme {
-    background: linear-gradient(to bottom, #740001, #000) !important;
-    color: #fff;
-}
-
-.grifinoria-theme #quiz-container {
-    box-shadow: 0 0 20px #ae0001;
-    border-color: #5d5d5d;
-}
-
-.grifinoria-theme button {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: #ae0001;
-} */
-/* 
- .corvinal-theme {
-    background: linear-gradient(to bottom, #0e1a40, #000) !important;
-    color: #fff;
-}
-
-.corvinal-theme #quiz-container {
-    box-shadow: 0 0 20px #222f5b;
-    border-color: #5d5d5d;
-}
-
-.corvinal-theme button {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: #5d5d5b;
-}   */
-
-/* .lufalufa-theme {
-    background: linear-gradient(to bottom, #ffdb00, #000) !important;
-    color: #000;
-}
-
-.lufalufa-theme #quiz-container {
-    box-shadow: 0 0 20px #ecb939;
-    border-color: #5d5d5d;
-}
-.lufalufa-theme #cheering-character {
-    color: #fff;
-}
-.lufalufa-theme button {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: #ecb939;
-} */
-
 #cheering-character {
     position: fixed;
     bottom: 20px;
@@ -529,19 +476,6 @@ button[onclick*="hard"].difficulty-selected {
     text-shadow: 0 0 5px #FFF;
     font-weight: bold;
 }
-/* 
-button[onclick*="easy"].difficulty-selected {
-    background: linear-gradient(45deg, #000, #4CAF50) !important;
-    text-shadow: 0 0 5px #FFF;
-    font-weight: bold;
-}
-
-button[onclick*="medium"].difficulty-selected {
-    background: linear-gradient(45deg, #000, #FFC107) !important;
-    text-shadow: 0 0 5px #FFF;
-    font-weight: bold;
-} */
-
 
 @media (hover: none) {
     button:hover {

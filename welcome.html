@@ -11,7 +11,10 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: url('images/fundo.png') no-repeat center center fixed;
+            background-blend-mode: multiply;
+            background: 
+                url('images/fundo2.png') no-repeat center center fixed,
+                linear-gradient(to bottom, rgba(26, 18, 11, 0.7), rgba(40, 25, 10, 0.9));
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -32,12 +35,41 @@
             border-radius: 15px;
             border: 2px solid gold;
             border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,20 C20,0 80,0 100,20 L100,80 C80,100 20,100 0,80 Z" fill="none" stroke="gold" stroke-width="2"/></svg>') 30 stretch;
-            box-shadow: 0 0 30px gold;
+            box-shadow: 0 0 30px gold, 
+                        0 0 60px rgba(255, 215, 0, 0.3) inset;
             max-width: 600px;
             position: relative;
             z-index: 2;
             transition: transform 0.3s;
             font-style: italic;
+            backdrop-filter: blur(5px);
+            overflow: hidden;
+        }
+
+        .welcome-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: rotateLight 20s linear infinite;
+            z-index: -1;
+        }
+
+        .welcome-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+            mix-blend-mode: overlay;
         }
 
         .welcome-container:hover {
@@ -70,28 +102,19 @@
             line-height: 1.6;
             position: relative;
             z-index: 2;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes pulse-color {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        .description::first-letter {
+            font-size: 1.5em;
+            color: gold;
+            font-family: 'Cinzel Decorative', cursive;
         }
-        /* @keyframes red-glow {
-            from { text-shadow: 0 0 5px #ae0001; }
-            to { text-shadow: 0 0 15px #ff6b6b; }
+
+        @keyframes rotateLight {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        @keyframes green-glow {
-            from { text-shadow: 0 0 5px #2a623d; }
-            to { text-shadow: 0 0 15px #6bff6b; }
-        }
-        @keyframes blue-glow {
-            from { text-shadow: 0 0 5px #222f5b; }
-            to { text-shadow: 0 0 15px #6b6bff; }
-        }
-        @keyframes yellow-glow {
-            from { text-shadow: 0 0 5px #ecb939; }
-            to { text-shadow: 0 0 15px #ffff6b; }
-        } */
 
         .wands-container {
             position: relative;
@@ -116,9 +139,10 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(to right, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.1));
-            border: 1px solid gold;
-            color: white;
+            background: linear-gradient(145deg, rgba(255,215,0,0.2), rgba(255,215,0,0.05));
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            color: #ffd700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
             font-size: 1.2rem;
             padding: 12px 30px;
             border-radius: 8px;
@@ -127,6 +151,8 @@
             font-weight: bold;
             z-index: 3;
             overflow: hidden;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3),
+                        0 0 20px rgba(255, 215, 0, 0.1) inset;
         }
 
         .start-button::before {
@@ -146,6 +172,21 @@
             z-index: -1;
         }
 
+        .start-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .start-button:hover::after {
+            left: 100%;
+        }
+
         @keyframes spell-effect {
             0% { transform: rotate(0deg) translateY(-100%); }
             100% { transform: rotate(360deg) translateY(-100%); }
@@ -157,25 +198,9 @@
         }
 
         .start-button:hover {
-            background: linear-gradient(to right, rgba(255, 215, 0, 0.5), rgba(255, 215, 0, 0.3));
+            background: linear-gradient(145deg, rgba(255,215,0,0.4), rgba(255,215,0,0.2));
             transform: translateX(-50%) scale(1.05);
             box-shadow: 0 0 15px gold;
-        }
-
-        .start-button:after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(30deg);
-            transition: all 0.3s;
-        }
-
-        .start-button:hover:after {
-            left: 100%;
         }
 
         .sparks {
@@ -190,11 +215,10 @@
 
         .spark {
             position: absolute;
-            width: 5px;
-            height: 5px;
             background: gold;
             border-radius: 50%;
             opacity: 0;
+            box-shadow: 0 0 10px 5px gold;
         }
 
         .fawkes {
@@ -207,17 +231,23 @@
             background-size: contain;
             animation: float 6s ease-in-out infinite;
             z-index: 3;
-            filter: drop-shadow(0 0 10px #ff6d00);
+            filter: drop-shadow(0 0 10px #ff6d00) brightness(1.1);
+            mix-blend-mode: lighten;
             transition: filter 0.3s;
         }
 
         .fawkes:hover {
-            filter: drop-shadow(0 0 20px #ff6d00);
+            animation: float 3s ease-in-out infinite, glow 1.5s alternate infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px #ff6d00) brightness(1.1); }
+            to { filter: drop-shadow(0 0 20px #ff6d00) brightness(1.3); }
         }
 
         @keyframes flicker {
@@ -262,6 +292,14 @@
             50% { opacity: 0.7; }
         }
 
+        .gold-text {
+            background: linear-gradient(to right, #ffd700, #f0c14b, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
         .highlight {
             background: linear-gradient(to right, gold, darkorange);
             -webkit-background-clip: text;
@@ -278,12 +316,18 @@
 
         @media (max-width: 500px) {
             .welcome-container {
-                padding: 20px;
-                margin: 20px;
+                transform: scale(0.9);
+                margin: 10px;
+                padding: 15px;
             }
 
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .description {
+                font-size: 0.9rem;
             }
 
             .wands-image {
@@ -295,11 +339,17 @@
                 height: 150px;
             }
 
+            .start-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
             .fawkes {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
         }
+        
     </style>
 </head>
 
@@ -333,36 +383,54 @@
     <script>
         function createSparks() {
             const container = document.getElementById('sparks-container');
-            const colors = ['gold', '#ff5555', '#55aaff'];
+            const colors = ['gold', '#ff5555', '#55aaff', '#aaff55', '#ff55ff'];
+            
+            container.innerHTML = '';
 
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 50; i++) {
                 const spark = document.createElement('div');
                 spark.className = 'spark';
-                spark.style.background = colors[Math.floor(Math.random() * colors.length)];
-                spark.style.left = Math.random() * 100 + 'vw';
-                spark.style.top = Math.random() * 100 + 'vh';
-                spark.style.width = (Math.random() * 5 + 2) + 'px';
-                spark.style.height = spark.style.width;
-
-                spark.style.animation = `sparkle ${Math.random() * 3 + 2}s infinite`;
-                container.appendChild(spark);
-
-                const keyframes = `
-                    @keyframes sparkle {
-                        0% { opacity: 0; transform: translate(0, 0); }
-                        50% { opacity: 1; transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px); }
-                        100% { opacity: 0; transform: translate(0, 0); }
-                    }
+                
+                const size = Math.random() * 6 + 2;
+                const duration = Math.random() * 5 + 3;
+                const delay = Math.random() * 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                spark.style.width = `${size}px`;
+                spark.style.height = `${size}px`;
+                spark.style.background = color;
+                spark.style.borderRadius = '50%';
+                spark.style.position = 'absolute';
+                spark.style.left = `${Math.random() * 100}vw`;
+                spark.style.top = `${Math.random() * 100}vh`;
+                spark.style.opacity = '0';
+                spark.style.boxShadow = `0 0 ${size*2}px ${size}px ${color}`;
+                
+                spark.style.animation = `
+                    float ${duration}s ease-in-out ${delay}s infinite,
+                    fade ${duration}s ease-in-out ${delay}s infinite
                 `;
-
-                const style = document.createElement('style');
-                style.innerHTML = keyframes;
-                document.head.appendChild(style);
+                
+                container.appendChild(spark);
             }
+
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes float {
+                    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                    25% { transform: translate(${Math.random()*20-10}px, -10px) rotate(5deg); }
+                    50% { transform: translate(${Math.random()*20-10}px, -20px) rotate(0deg); }
+                    75% { transform: translate(${Math.random()*20-10}px, -10px) rotate(-5deg); }
+                }
+                @keyframes fade {
+                    0%, 100% { opacity: 0; }
+                    50% { opacity: ${Math.random()*0.7 + 0.3}; }
+                }
+            `;
+            document.head.appendChild(style);
         }
 
         function startQuiz() {
-            // Cria um portal mágico de transição
             const portal = document.createElement('div');
             portal.style.position = 'fixed';
             portal.style.width = '10px';
@@ -377,7 +445,6 @@
             portal.style.animation = 'portalOpen 1.5s forwards';
             document.body.appendChild(portal);
 
-            // Efeito de desaparecimento do conteúdo
             document.querySelector('.welcome-container').style.animation = 'fadeOut 1s forwards';
 
             const style = document.createElement('style');
@@ -398,6 +465,7 @@
                 window.location.href = 'index.html';
             }, 1500);
         }
+
         window.onload = function () {
             createSparks();            
             document.querySelector('.welcome-container').style.animation = 'fadeIn 1s forwards';

@@ -28,19 +28,19 @@ const questions = {
         { question: "Qual é o nome do mapa que mostra todos os lugares e pessoas em Hogwarts?", answers: ["Mapa do Maroto", "Mapa da Magia", "Mapa de Hogwarts", "Mapa do Príncipe Mestiço"], correct: 0 },
         { question: "Quem foi o responsável pela criação da pedra filosofal?", answers: ["Nicolau Flamel", "Alvo Dumbledore", "Salazar Sonserina", "Horácio Slughorn"], correct: 0 },
         { question: "Qual é o nome do dragão que Harry enfrenta no Torneio Tribruxo?", answers: ["Chapéu Seletor", "Bicorne", "Dragão Húngaro", "Dragão Sueco"], correct: 2 },
-        { question: "Qual é o nome do diretor da escola de magia Beauxbatons?", answers: ["Fleur Delacour", "Madame Olympe Maxime", "Gabrielle Delacour", "Minerva McGonagall"], correct: 1 },
+        { question: "Qual é o nome do bar onde os bruxos se reúnem no Beco Diagonal?", answers: ["O Caldeirão Furado", "Três Vassouras", "A Cabeça de Javali", "O Beco do Bode"], correct: 0 },
         { question: "Como a Murta que Geme morreu?", answers: ["Ela foi assassinada por um basilisco", "Ela se afogou no banheiro", "Ela caiu de uma escada", "Ela foi envenenada"], correct: 0 }
     ],
     hard: [
-        { question: "O que significa a sigla 'P.E.D.R.A.'?", answers: ["Programa Especial de Defesa Rápida e Avançada", "Pacto Estudantil de Duelo Rápido Avançado", "Proteção Extra dos Direitos dos Raros Animais", "Plataforma de Educação de Defesa Revolucionária e Avançada"], correct: 1 },
+        { question: "Qual feitiço foi inventado por Severo Snape?", answers: ["Sectumsempra", "Avada Kedavra", "Expecto Patronum", "Confundo"], correct: 0 },
         { question: "Qual é o nome verdadeiro de Lord Voldemort?", answers: ["Tom Riddle", "Tom Marvolo Riddle", "Tom Riddle Jr.", "Tom Riddle Sr."], correct: 1 },
         { question: "Quem é o verdadeiro dono da Varinha das Varinhas antes de Dumbledore?", answers: ["Nicolau Flamel", "Gellert Grindelwald", "Tom Riddle", "Harry Potter"], correct: 1 },
-        { question: "Qual é o nome completo de Alvo Dumbledore?", answers: ["Alvo Percival Wulfrico Brian Dumbledore", "Alvo Brian Percival Dumbledore", "Alvo Severo Dumbledore", "Alvo Grindelwald Dumbledore"], correct: 0 },
+        { question: "Em 'A Ordem da Fênix', quem ensina Harry a usar a Sala Precisa?", answers: ["Neville Longbottom", "Luna Lovegood", "Hermione Granger", "Dobby"], correct: 3 },
         { question: "Qual é o nome da irmã de Dumbledore?", answers: ["Ariana", "Morgana", "Helena", "Abigail"], correct: 0 },
         { question: "Qual é o nome do gigante meio-irmão de Hagrid?", answers: ["Grawp", "Karkus", "Norberto", "Fang"], correct: 0 },
-        { question: "Qual é a senha para entrar na sala comunal da Grifinória no primeiro ano?", answers: ["Caput Draconis", "Alohomora", "Fortuna Major", "Vingardium Leviosa"], correct: 0 },
+        { question: "Onde fica a prisão de Azkaban?", answers: ["No Lago Negro", "Nas Ilhas Britânicas", "No Mar do Norte", "Nas Montanhas dos Cárpatos"], correct: 2 },
         { question: "Qual é a raça do dragão que Hagrid cria ilegalmente?", answers: ["Norueguês de dorso negro", "Rabo-Córneo Húngaro", "Chinês de Barriga Vermelha", "Verde Galês"], correct: 0 },
-        { question: "Qual é o nome da organização secreta liderada por Dumbledore para combater Voldemort?", answers: ["Ordem da Fênix", "Exército de Dumbledore", "Liga da Luz", "Sociedade dos Bruxos Livres"], correct: 0 },
+        { question: "Em 'O Prisioneiro de Azkaban', Dumbledore diz que 'mais de uma vida inocente pode ser salva'. A qual situação ele se refere?", answers: ["Salvar Bicuço e Sirius Black da execução", "Impedir que os Dementadores matem Harry e Hermione", "Proteger Remo Lupin após sua licantropia ser revelada", "Evitar que Pettigrew escape e ressuscite Voldemort"], correct: 0 },
         { question: "Qual horcrux foi destruída por Neville Longbottom?", answers: ["O diário de Tom Riddle", "O anel de Marvolo Gaunt", "A taça de Helga Lufa-Lufa", "A cobra Nagini"], correct: 3 }
     ]
 };
